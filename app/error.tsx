@@ -7,7 +7,7 @@ const error = ({ error, reset }: { error: Error; reset: () => void }) => {
       <div className="text-center">
         <p className="text-base font-semibold ">There was a problem</p>
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900">
-          {error.name || 'Something went wrong'}
+          {error.message || 'Something went wrong'}
         </h1>
         <p className="mt-6 text-base leading-7 text-zinc-600">
           please try again later
@@ -22,3 +22,5 @@ const error = ({ error, reset }: { error: Error; reset: () => void }) => {
 };
 
 export default error;
+
+// project structure
