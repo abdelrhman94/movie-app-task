@@ -21,11 +21,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
         <h2 className="text-lg font-medium">{movie?.title}</h2>
         <span
           className={`flex flex-col p-1.5 text-white rounded-full ${
-            movie?.vote_average < 5
-              ? `bg-red-700`
-              : movie?.vote_average == 5
-              ? `bg-orange-700`
-              : `bg-green-700`
+             movie?.vote_average <= 5 ? `bg-red-700` : `bg-green-700`
           }`}
         >
           {movie?.vote_average}
