@@ -10,6 +10,11 @@ const getMoviesByType = async (type: string, page?: number) => {
   return response.data;
 };
 
+const getMoviesById =async (id:string) => {
+  const response = await apiClient
+  
+}
+
 const MoviesServices = {
   getMoviesByType,
 };

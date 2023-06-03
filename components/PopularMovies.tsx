@@ -14,7 +14,7 @@ const PopularMovies = ({ popularMovies }: { popularMovies: any }) => {
           See all
         </Link>
       </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  mt-4 gap-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 mt-4 gap-4">
         {popularMovies.results.slice(0, 4).map((movie: Movie) => (
           <MovieCard key={movie?.id} movie={movie} />
         ))}
