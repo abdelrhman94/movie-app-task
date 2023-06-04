@@ -86,7 +86,7 @@ const page = async ({ params }: IParamsMovieDetails) => {
           <div className="flex justify-between items-center mt-4">
             <h1 className="text-2xl font-medium">Top Cast</h1>
           </div>
-          <div className="grid grid-cols-4 mt-4 gap-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 mt-4 gap-4">
             {movieCast?.cast?.slice(0, 4).map((cast: Cast) => (
               <CastCard key={cast?.id} cast={cast} />
             ))}
@@ -96,7 +96,7 @@ const page = async ({ params }: IParamsMovieDetails) => {
           <div className="flex justify-between items-center mt-4">
             <h1 className="text-2xl font-medium">Top Recommendations</h1>
           </div>
-          <div className="grid grid-cols-4 mt-4 gap-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 mt-4 gap-4">
             {recommendations?.results?.slice(0, 4).map((movie: Movie) => (
               <MovieCard key={movie?.id} movie={movie} />
             ))}
