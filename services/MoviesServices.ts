@@ -1,5 +1,5 @@
 import apiClient from '@/libs/axios';
-import { Movies } from '@/types/movies';
+import { Movie, Movies } from '@/types/movies';
 
 const api_key = process.env.API_KEY;
 
@@ -10,12 +10,15 @@ const getMoviesByType = async (type: string, page?: number) => {
   return response.data;
 };
 
-const getMoviesById =async (id:string) => {
-  const response = await apiClient
-  
-}
+const getMoviesById = async (id: number) => {
+  const response = await apiClient.get<Movie>(
+    `/movie/${id}?api_key=${api_key}&language=en-US`
+  );
+  return response.data;
+};
 
 const MoviesServices = {
   getMoviesByType,
+  getMoviesById,
 };
 export default MoviesServices;
