@@ -2,6 +2,10 @@ import Image from 'next/image';
 import MoviesServices from '@/services/MoviesServices';
 import { Movie } from '@/types/movies';
 import dayjs from 'dayjs';
+import { Cast } from '@/types/cast';
+import CastCard from '@/components/CastCard';
+import Link from 'next/link';
+import MovieCard from '@/components/MovieCard';
 
 interface IParamsMovieDetails {
   params: {
@@ -11,7 +15,9 @@ interface IParamsMovieDetails {
 
 const page = async ({ params }: IParamsMovieDetails) => {
   const { id } = params;
-  const movie = await MoviesServices.getMoviesById(id);
+  const movie = await MoviesServices.getMovieById(id);
+  const movieCast = await MoviesServices.getMovieCasts(id);
+  const recommendations = await MoviesServices.getMovieRecommendation(id);
   const durationHours = Math.round(movie?.runtime / 60);
   const durationMinutes = Math.round(movie?.runtime % 60);
 
@@ -23,6 +29,7 @@ const page = async ({ params }: IParamsMovieDetails) => {
             <div className="flex relative">
               <div className="w-[270px] h-[400px] relative">
                 <Image
+                  className="rounded-2xl"
                   src={
                     movie?.poster_path
                       ? `${process.env.IMAGE_URL}${movie?.poster_path}`
@@ -63,6 +70,28 @@ const page = async ({ params }: IParamsMovieDetails) => {
                 <p className="text-md font-normal">{movie?.overview}</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-[1200px] max-w-full px-4 mx-auto">
+        <div className="flex flex-col mb-6 mt-6">
+          <div className="flex justify-between items-center mt-4">
+            <h1 className="text-2xl font-medium">Top Cast</h1>
+          </div>
+          <div className="grid grid-cols-4 mt-4 gap-4">
+            {movieCast?.cast?.slice(0, 4).map((cast: Cast) => (
+              <CastCard key={cast?.id} cast={cast} />
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col mb-6 mt-6">
+          <div className="flex justify-between items-center mt-4">
+            <h1 className="text-2xl font-medium">Top Recommendations</h1>
+          </div>
+          <div className="grid grid-cols-4 mt-4 gap-4">
+            {recommendations?.results?.slice(0, 4).map((movie: Movie) => (
+              <MovieCard key={movie?.id} movie={movie} />
+            ))}
           </div>
         </div>
       </div>
