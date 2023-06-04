@@ -13,6 +13,12 @@ interface IParamsMovieDetails {
   };
 }
 
+export async function generateMetadata({ params }: IParamsMovieDetails) {
+  const { id } = params;
+  const movie = await MoviesServices.getMovieById(id);
+  return { title: movie.title };
+}
+
 const page = async ({ params }: IParamsMovieDetails) => {
   const { id } = params;
   const movie = await MoviesServices.getMovieById(id);
