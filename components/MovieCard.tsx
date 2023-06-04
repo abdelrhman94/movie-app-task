@@ -14,10 +14,9 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
               : `${process.env.EMPTY_MOVIE_URL}`
           }
           alt={movie?.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={true}
-          placeholder="empty"
+          placeholder="blur"
+          blurDataURL="/blur.jpg"
+          fill={true}
         />
       </div>
       <div className="flex gap-4 justify-center items-center mt-3 bg-red">

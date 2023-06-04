@@ -42,6 +42,8 @@ const page = async ({ params }: IParamsMovieDetails) => {
                       : `${process.env.EMPTY_MOVIE_URL}`
                   }
                   alt={movie?.title}
+                  placeholder="blur"
+                  blurDataURL="/blur.jpg"
                   fill={true}
                 />
               </div>

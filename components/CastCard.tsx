@@ -13,6 +13,8 @@ const CastCard = ({ cast }: { cast: Cast }) => {
               : `${process.env.EMPTY_MOVIE_URL}`
           }
           alt={cast?.name}
+          placeholder="blur"
+          blurDataURL="/blur.jpg"
           fill={true}
         />
       </div>
