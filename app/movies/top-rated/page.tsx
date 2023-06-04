@@ -1,5 +1,5 @@
 import MovieCard from '@/components/MovieCard';
-import Pagination from '@/components/Shared/Pagination';
+import Pagination from '@/components/Pagination';
 import MoviesServices from '@/services/MoviesServices';
 import { Movie } from '@/types/movies';
 

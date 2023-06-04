@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Movie } from '@/types/movies';
-import MovieCard from './MovieCard';
+import MovieCard from '@/components/MovieCard';
 
 const PopularMovies = ({ popularMovies }: { popularMovies: any }) => {
   return (

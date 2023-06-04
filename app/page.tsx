@@ -1,7 +1,7 @@
 import MoviesServices from '@/services/MoviesServices';
-import PopularMovies from '@/components/PopularMovies';
-import UpcomingMovies from '@/components/UpcomingMovies';
-import TopRatedMovies from '@/components/TopRatedMovies';
+import PopularMovies from '@/containers/PopularMovies';
+import UpcomingMovies from '@/containers/UpcomingMovies';
+import TopRatedMovies from '@/containers/TopRatedMovies';
 
 export default async function Home() {
   const popularMovies = await MoviesServices.getMoviesByType('popular');
